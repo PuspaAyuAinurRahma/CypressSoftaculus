@@ -1,0 +1,89 @@
+<h4 class="form-title">
+    Pengaturan X-Cube
+</h4>
+
+<p>
+    Informasi login aplikasi dan akses database
+</p>
+
+<div class="panel-body">
+    <form name="configuration-<%= index %>">
+        <% forms["no_header"].forEach(function(form){ %>
+            <div class="row">
+                <div class="col-md-4 appConfigLabel">
+                    <%= form.label %> <span class="required">*</span>
+                </div>
+                <div class="col-md-8 form-group">
+                    <input type="text"
+                           class="form-control <%= form.validation %>"
+                           data-validation="<%= form.default_value ? 'true' : 'false' %>"
+                           placeholder="<%= form.placeholder %>" name="<%= form.name %>"
+                           value="<%= form.default_value %>">
+                    <span class="help-block none"><%= form.label %> kurang valid sob</span>
+                </div>
+            </div>
+        <% }) %>
+
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                <h4><strong>Admin Account</strong></h4>
+            </div>
+        </div>
+        <% forms["admin_account"].forEach(function(form){ %>
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                <%= form.label %> <span class="required">*</span>
+            </div>
+            <div class="col-md-8 form-group">
+                <input type="text"
+                       class="form-control <%= form.validation %>"
+                       data-validation="<%= form.default_value ? 'true' : 'false' %>"
+                       placeholder="<%= form.placeholder %>" name="<%= form.name %>"
+                       value="<%= form.default_value %>">
+                <span class="help-block none"><%= form.label %> kurang valid sob</span>
+                <% if (form.label.toLowerCase().includes('password')){ %>
+                <br>
+                <small>
+                    <strong>Passwordmu wajib :</strong> <br>
+                    - 8 karakter atau lebih.<br>
+                    - Menyertakan minimal 1 huruf besar/kapital <br>
+                    - Menyertakan minimal 1 digit nomer <br>
+                    - Menggunakan simbol kecuali ( :;'" )
+                </small>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                <h4><strong>Database Setting</strong></h4>
+            </div>
+        </div>
+        <% forms["database_setting"].forEach(function(form){ %>
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                <%= form.label %> <span class="required">*</span>
+            </div>
+            <div class="col-md-8 form-group">
+                <input type="text"
+                       class="form-control <%= form.validation %>"
+                       data-validation="<%= form.default_value ? 'true' : 'false' %>"
+                       placeholder="<%= form.placeholder %>" name="<%= form.name %>"
+                       value="<%= form.default_value %>">
+                <span class="help-block none"><%= form.label %> kurang valid sob</span>
+                <% if (form.label.toLowerCase().includes('password')){ %>
+                <br>
+                <small>
+                    <strong>Passwordmu wajib :</strong> <br>
+                    - 8 karakter atau lebih.<br>
+                    - Menyertakan minimal 1 huruf besar/kapital <br>
+                    - Menyertakan minimal 1 digit nomer <br>
+                    - Menggunakan simbol kecuali ( :;'" )
+                </small>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+    </form>
+</div>

@@ -1,0 +1,72 @@
+security:
+  crypt_pass : BgJ0bInt3rm3di@ # Passphrase untuk enkripsi
+
+logger:
+  api_endpoint  : http://10.10.35.3/v1/ # Url dari api logger
+  client        : ElasticSearch # (tidak boleh ada spasi) Tipe storage client untuk logger-api. Lebih detail lihat di http://new.terapkan.com/whmcs/logger-api
+  title         : Member-JH # (tidak boleh ada spasi) Untuk define title log yang masuk ke logger. Bisa diisi dengan nama website
+  tag           : BeonOrder # (tidak boleh ada spasi) Untuk define tag dari log yang masuk ke logger. Bisa diisi dengan nama fungsi, module, atau class
+
+job:
+  api_endpoint  : http://jobs01beoncoid-at.cloud.revoluz.io/api/v1/ # Url dari api background job
+
+default_products:
+  prod:
+    - type: Hosting
+      groups:
+        - name: Cloud Hosting
+          products:
+            - 421
+            - 427
+            - 430
+#    - type: VPS
+#      groups:
+#        - name: VPS X
+#          products:
+#            - 593
+#            - 594
+#            - 595
+#            - 620
+#            - 621
+#            - 622
+#        - name: VM X
+#          products:
+#            - 623
+#            - 624
+#            - 625
+
+  stag_om:
+    - type: Hosting
+      groups:
+        - name: Cloud Hosting
+          products:
+            - 421
+            - 430
+  stag_dev:
+    - type: Hosting
+      groups:
+        - name: Cloud Hosting
+          products:
+            - 421
+            - 430
+
+persyaratan_domain:
+  - tld: ".co.id"
+    persyaratan: "<li>KTP Rebulik Indonesia</li>
+    <li>SIUP/TDP/AKTA/Surat Izin yang setara.</li>
+    <li>Sertifikat Merek (bila ada)</li>"
+  - tld: ".sch.id"
+    persyaratan: "<li>Untuk sekolah resmi:Surat Keterangan Kepala Sekolah atau Kepala Lembaga. Draft surat keterangan Kepala Sekolah dapat di download di sini KTP Republik Indonesia</li>
+     <li>Untuk Pendidikan non-formal yang diakui oleh SKPD: SK Pendirian Lembaga dari Kementerian atau SKPD terkait. KTP Republik Indonesia</li>"
+  - tld: ".my.id"
+    persyaratan: "<li>KTP Rebulik Indonesia</li>
+    <li>Registran wajib melakukan registrasi melalui link yang dikirimkan via email</li>"
+  - tld: ".ac.id"
+    persyaratan: "<li>KTP Rebulik Indonesia</li>
+    <li>SK Pendirian Lembaga dari Kementerian/Lembaga yang berwenang sesuai Peraturan Perundang-Undangan.</li>
+    <li>Surat Keterangan Rektor atau Pimpinan Lembaga.</li>"
+  - tld: ".or.id"
+    persyaratan: "<li>KTP Rebulik Indonesia</li>
+    <li>Akta Notaris atau Surat Keterangan dari organisasi yang bersangkutan.</li>"
+  - tld: ".web.id"
+    persyaratan: "<li>KTP Rebulik Indonesia</li>"

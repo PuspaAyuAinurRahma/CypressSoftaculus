@@ -1,0 +1,45 @@
+.beon-template #main-body .client-option>a {
+    border-top: none;
+}
+
+[id^="customfield"]{
+    height: auto !important;
+    line-height: inherit !important;
+}
+
+.beon-template #containerRegister>.row{
+    padding:10px 150px;
+}
+
+.beon-template .client-option{
+    border-bottom: 2px solid #55575E;
+    background: #2F3034;
+    width: 50%;
+}
+
+
+.beon-template .client-option>a:hover{
+    background: #3D3E43;
+}
+
+.beon-template .client-option.active>a:hover,
+.beon-template .client-option.active>a:focus{
+    background: #55575E;
+    color: white;
+}
+
+.beon-template .client-option>a{
+    color: rgba(255,255,255, 0.9);
+}
+
+.beon-template .client-option.active{
+    background: #55575E;
+}
+
+.beon-template .client-option.active>a{
+    color: #fff;
+}
+
+.beon-template .client-option>a::after{
+    display: none;
+}

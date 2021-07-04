@@ -1,0 +1,30 @@
+<div class="panel" id="panel<%= index %>" data-type="domain" data-index="<%= index %>">
+    <div class="panel-heading panel-heading-order">
+        <div class="flex flex-row justify-space-between">
+            <div class="header-left-panel">
+                <h3 class="title">Layanan yang kamu beli - Domain Baru</h3>
+            </div>
+            <div class="header-right-panel">
+                <div class="flex">
+                    <span class="domain-name"><%= domainName %></span>
+                    <span class="maximize-icon pointer <%= minimize ? '' : 'hidden' %>"><i class="fas fa-plus"></i></span>
+                    <span class="minimize-icon pointer <%= minimize ? 'hidden' : '' %>"><i class="fas fa-minus"></i></span>
+                    <span class="remove-panel pointer"><i class="fas fa-trash-alt"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body panel-body-order">
+        <div class="minimize-panel <%= minimize ? '' : 'hidden' %>">
+
+        </div>
+        <div class="maximize-panel <%= minimize ? 'hidden' : '' %>">
+            <div class="col-md-12">
+                <div class="hasilpencarian-domain">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-domain-serupa">
+</div>

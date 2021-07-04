@@ -1,0 +1,50 @@
+<h4 class="form-title">
+    Pilih X-Cube (Konten VPS)
+</h4>
+
+<p>
+    Kamu bisa pilih Aplikasi / Control Panel VPS / OS, yang akan di install secara otomatis ke dalam VPS mu
+</p>
+
+<div class="panel-body">
+    <ul class="nav nav-tabs">
+        <% if (selected.type) { %>
+            <li class="<%= selected.type == 'aio' ? 'active' : '' %>">
+                <a href="#aio-<%= id %>" data-toggle="tab" aria-expanded="true">Aplikasi</a>
+            </li>
+            <li class="<%= selected.type == 'ospanel' ? 'active' : '' %>">
+                <a href="#ospanel-<%= id %>" data-toggle="tab" aria-expanded="false">OS + Panel</a>
+            </li>
+            <li class="<%= selected.type == 'os_only' ? 'active' : '' %>">
+                <a href="#os-<%= id %>" data-toggle="tab" aria-expanded="false">OS Only</a>
+            </li>
+        <% } else { %>
+            <li class="active">
+                <a href="#aio-<%= id %>" data-toggle="tab" aria-expanded="true">Aplikasi</a>
+            </li>
+            <li>
+                <a href="#ospanel-<%= id %>" data-toggle="tab" aria-expanded="false">OS + Panel</a>
+            </li>
+            <li>
+                <a href="#os-<%= id %>" data-toggle="tab" aria-expanded="false">OS Only</a>
+            </li>
+        <% } %>
+    </ul>
+    <div class="tab-content">
+        <% if (selected.type) { %>
+        <div id="aio-<%= id %>"
+             class="tab-pane <%= selected.type == 'aio' ? 'show-not-important active' : '' %>"></div>
+        <div id="ospanel-<%= id %>"
+             class="tab-pane ospanel <%= selected.type == 'ospanel' ? 'show-not-important active' : '' %>"></div>
+        <div id="os-<%= id %>"
+             class="tab-pane osonly <%= selected.type == 'os_only' ? 'show-not-important active' : '' %>"></div>
+        <% } else { %>
+        <div id="aio-<%= id %>"
+             class="tab-pane show-not-important active"></div>
+        <div id="ospanel-<%= id %>"
+             class="tab-pane ospanel"></div>
+        <div id="os-<%= id %>"
+             class="tab-pane osonly"></div>
+        <% } %>
+    </div>
+</div>

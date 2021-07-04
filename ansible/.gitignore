@@ -1,0 +1,8 @@
+### Ansible ###
+.idea
+.vscode
+*.retry
+*.vault
+*.galaxy_install_info
+*/__pycache__
+*.pyc

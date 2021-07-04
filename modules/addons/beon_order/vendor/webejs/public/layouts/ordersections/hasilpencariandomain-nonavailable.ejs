@@ -1,0 +1,34 @@
+<div class="row wrapper-domain-nonavailable">
+    <div class="col-md-12">
+        <div class="flex flex-row display-domain justify-space-between">
+            <div class="name">
+                <span class="domain-name">
+                    <%= domain %>
+                </span>
+                <span><i class="fas fa-question-circle color-info" data-placement="bottom" data-original-title="Domain ini sudah dibeli orang lain, Sob. Kalo kamu pemilik domain ini dan terdaftar di provider lain, kamu bisa transfer domain ini ke Jagoan Hosting. Atau gunakan untuk layananmu." data-toggle="tooltip"></i></span>
+            </div>
+            <div class="flex flex-row cta">
+                <% if (allowUseDomain) { %>
+                <button class="btn btn-default btn-gunakan-domain">
+                    <i class="hidden"><img src="/modules/addons/beon_order/templates/assets/images/icon-success.png" alt=""></i>
+                    <span class="text">Gunakan</span>
+                </button>
+                <% } %>
+
+                <% if (!dataDomain.hasOwnProperty("error")) { %>
+                <button class="btn btn-default btn-transfer-domain" data-transfer-price="<%= defaultPrice %>" data-actual-price="<%= dataDomain.shortestPeriod.transfer %>" name="transfer-domain">
+                    Transfer domain
+                </button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--        <div class="alert alert-info requirement-domain">-->
+<!--            <p><span><i class="fas fa-question-circle color-info"></i></span> <b>Persyaratan Beli Domain</b></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

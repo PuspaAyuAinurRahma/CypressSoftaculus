@@ -1,0 +1,5 @@
+{
+    "require": {
+        "yangqi/htmldom": "dev-master"
+    }
+}

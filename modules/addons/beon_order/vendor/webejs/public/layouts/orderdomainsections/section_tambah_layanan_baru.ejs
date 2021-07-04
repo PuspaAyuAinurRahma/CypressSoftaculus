@@ -1,0 +1,45 @@
+<div class="align-items-center panel-penawaran penawaran-orange" style="margin: 10px 0;">
+    <h4 class="form-title">
+        Tambah Layanan Baru
+    </h4>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-orange btn-block" id="tambahLayanan" data-toggle="modal" data-target="#myModal">Tambah Layanan</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-content-order">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-window-close"></i></button>
+                <h4 class="modal-title" id="myModalLabel">Tambah layanan</h4>
+            </div>
+            <div class="modal-body">
+                <div class="dropdown_select_wrapper" data-type="new_service">
+                    <ul class="default_option">
+                        <li>
+                            <div class="option">
+                                <div class="sub-title">Silahkan pilih layanan</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="select_ul">
+                        <% for (groupname in group) { %>
+                        <li>
+                            <div class="option" data-groupid="<%= groupname %>">
+                                <div class="title"><%= group[groupname] %></div>
+                                <div class="description">Deskripsi</div>
+                            </div>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

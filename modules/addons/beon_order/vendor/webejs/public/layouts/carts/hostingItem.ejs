@@ -1,0 +1,153 @@
+<div class="item" data-type="cart">
+    <div class="flex flex-row">
+        <h5 class="title" data-attr-scroll="panel<%= index %>"> <%= groupname %> </h5>&nbsp;&nbsp;&nbsp;
+        <span class="remove-section-cart pointer" data-index="<%= index %>" data-pid="<%= pid %>"><i class="fas fa-times-circle"></i></span>
+    </div>
+    <div class="flex flex-row justify-space-between">
+        <div class="sub-title">
+            <%= name %>
+
+            <% if (dataDomain.hasOwnProperty('name') && dataDomain.type == "use") { %>
+
+                ( <%= dataDomain.name %> )
+
+            <% } %>
+        </div>
+        <div class="sub-title">
+            <% if (price != "Rp. 0") {%>
+            <% if(strike_price!=0){ %>
+                <del style="font-size: 10px; font-weight: bold; font-style: italic"><%= strike_price %></del>
+            <% } %>
+            <%= price %>
+            <% } %>
+        </div>
+    </div>
+
+    <% if ('osName' in template) { %>
+    <div class="flex flex-row justify-space-between">
+        <% if (template.type == 'aio') { %>
+            <%= template.apps + ' - ' + template.osName %>
+        <% } else if (template.type == 'ospanel') { %>
+            <%= template.panel + ' - ' + template.osName %>
+        <% } else { %>
+            <%= template.osName %>
+        <% } %>
+    </div>
+    <% } %>
+
+    <div class="flex flex-row justify-space-between">
+        <div class="sub-title keterangan">Reg. <%= billingcycle %></div>
+    </div>
+
+<!--    Configoptions-->
+    <% if(configoptions.length>0){ %>
+        <% configoptions.forEach(function (item){ %>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title sub-keterangan">
+                    <% if (item.optioncode=='quota'){%>
+                        <%= item.optionname %>: <%= item.selectedqty %> GB
+                    <% } %>
+
+                    <% if (item.optioncode=='pmem'){%>
+                        <%= item.optionname %>: <%= item.selectedqty %> GB
+                    <% } %>
+
+                    <% if (item.optioncode=='speed'){%>
+                        <%= item.optionname %>: <%= item.selectedqty %> Core
+                    <% } %>
+
+                    <% if (item.optioncode=='akun'){%>
+                        <%= item.optionname %>: <%= item.selectedqty %> Core
+                    <% } %>
+
+                    <% if (item.optioncode=='storage'){%>
+                        <%= item.optionname %>: <%= item.selectedqty %> GB
+                    <% } %>
+                </div>
+
+                <div class="sub-title sub-keterangan">
+                    <%= item.price %>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+
+<!--    CustomFields-->
+    <% if(customfields.length>0){ %>
+        <% customfields.forEach(function (item){ %>
+            <div class="flex flex-row justify-space-between">
+                <% if (item.fieldname=="Script"){ %>
+                    <div class="sub-title sub-keterangan">Apps: <%= item.value %></div>
+                <% } else{ %>
+                    <%if (item.fieldtype == "tickbox"){ %>
+                        <div class="sub-title sub-keterangan"> <%= item.description %> </div>
+                    <% } else{ %>
+                        <div class="sub-title sub-keterangan"> <%= item.fieldname.split('|').pop() %>: <%= item.value %> </div>
+                    <% } %>
+                <% } %>
+            </div>
+        <% }) %>
+    <% } %>
+
+    <% if (dataDomain.hasOwnProperty('name')) { %>
+        <% if (dataDomain.type == "transfer") { %>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title"><%= dataDomain.name %></div>
+                <div class="sub-title"><%= dataDomain.price %></div>
+            </div>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title keterangan">Trans. <%= dataDomain.billingcycle %></div>
+            </div>
+        <% }
+            if(dataDomain.type == "register") { %>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title"><%= dataDomain.name %></div>
+                <div class="sub-title">
+                    <% if(dataDomain.strike_price!=0){ %>
+                        <del style="font-size: 10px; font-weight: bold; font-style: italic"><%= dataDomain.strike_price %></del>
+                    <% } %>
+                    <%= dataDomain.price %>
+                </div>
+            </div>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title keterangan">Reg. <%= dataDomain.billingcycle %></div>
+            </div>
+        <% } %>
+    <% } %>
+
+    <% for (let i in cross_sale) {%>
+        <div class="flex flex-row justify-space-between">
+            <div class="sub-title"><%= cross_sale[i].title %></div>
+            <div class="sub-title"><%= utils.changeToRupiah(cross_sale[i].pricing) %></div>
+        </div>
+        <div class="flex flex-row justify-space-between">
+            <div class="sub-title keterangan">
+                <%= cross_sale[i].type == 'onetime' ? 'Onetime' : utils.changeFormatBilling(cross_sale[i].billingcycle) %>
+            </div>
+        </div>
+    <% } %>
+
+    <% if(master_cross_sales.length>0){ %>
+        <% master_cross_sales.forEach(function (item){ %>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title"><%= item.name %></div>
+                <div class="sub-title"><%= utils.changeToRupiah(item.price) %></div>
+            </div>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title keterangan">Reg. <%= utils.changeFormatBilling(item.billingcycle) %></div>
+            </div>
+
+            <% for (let i in item.cross_sale) {%>
+                <div class="flex flex-row justify-space-between">
+                    <div class="sub-title"><%= item.cross_sale[i].title %></div>
+                    <div class="sub-title"><%= utils.changeToRupiah(item.cross_sale[i].pricing) %></div>
+                </div>
+                <div class="flex flex-row justify-space-between">
+                    <div class="sub-title keterangan">
+                        <%= item.cross_sale[i].type == 'onetime' ? 'Onetime' : utils.changeFormatBilling(item.cross_sale[i].billingcycle) %>
+                    </div>
+                </div>
+            <% } %>
+        <% }) %>
+    <% } %>
+</div>

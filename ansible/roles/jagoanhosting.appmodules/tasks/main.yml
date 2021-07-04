@@ -1,0 +1,43 @@
+---
+
+- name: (Pre Deploy) Ensure all directory is exists with owner "{{ app_file_ownership }}" group "{{ app_file_group }}" app_env "{{ app_env }}"
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode | default(omit) }}"
+    owner: "{{ app_file_ownership }}"
+    group: "{{ app_file_group }}"
+  loop:
+    - { path: "{{ src_root_dir }}" }
+
+- name: Upload APP Files to server Path  "{{app_module_dir}}"
+  synchronize:
+    src: "{{ src_module_dir }}/"
+    dest: "{{ app_module_dir }}/"
+    use_ssh_args: True
+    rsync_opts:
+      - "--chown={{ app_file_ownership }}:{{ app_file_group }}"
+    delete: True
+
+- name: Setup App Environent
+  ini_file:
+    path: "{{ app_module_dir }}/config.ini"
+    section: application
+    option: environment
+    value: "{{ app_env }}"
+    backup: no
+
+- name: Capture template cache File to Delete
+  find:
+    paths: "{{ app_cache_dir }}"
+    file_type: file
+    patterns: '*.php'
+    excludes:
+      - "index.php"
+  register: cache_tmp_files
+
+- name: Clear Template Caches
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ cache_tmp_files['files'] }}"

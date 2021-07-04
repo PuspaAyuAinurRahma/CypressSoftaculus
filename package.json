@@ -1,0 +1,22 @@
+{
+  "name": "beon_order",
+  "version": "1.0.0",
+  "description": "- http://new.terapkan.com/whmcs-modules/beon_order\r - http://gitlab.beon.co.id/whmcs-template/sobat_jagoan\r - http://gitlab.beon.co.id/whmcs-template/form-order-jhcloud",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.beon.co.id/whmcs-module/beon_order.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^4.3.0"
+  }
+}

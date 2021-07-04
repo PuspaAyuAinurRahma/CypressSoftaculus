@@ -1,0 +1,61 @@
+<h4 class="form-title">
+    Durasi Berlangganan <span class="badge" style="
+    background: white;
+    border: solid 1px #eaeaea;
+    color: #333;
+"> Flat Price <span class="tambah-domain-info" data-original-title="Biaya Register dan Renewal Tetap Sama, Sob!" data-toggle="tooltip" data-placement="top"><i class="fas fa-question-circle color-info"></i></span></span>
+</h4>
+
+<div class="dropdown_select_wrapper" data-type="billingcycle">
+    <ul class="default_option">
+        <li>
+            <div class="option" data-billingcycle="<%= defaultBilling['billingcycle'] %>">
+                <div class="title"> <%= utils.changeFormatBilling(defaultBilling['billingcycle']) %> <span class="gimmick-price"></span> </div>
+                <div class="description">
+                    <span class="harga-coret" data-coret="false"></span>
+                    <%= utils.changeToRupiah(defaultBilling['price']) %>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="select_ul">
+        <% for (price in billingcycle) { %>
+            <% if (price.includes("monthprice")) {continue} %>
+
+            <% if (price == defaultBilling['billingcycle']) { %>
+                <li class="hidden">
+                    <div class="option" data-billingcycle="<%= price %>">
+                        <div class="title"> <%= utils.changeFormatBilling(price) %> <span class="gimmick-price"></span> </div>
+                        <div class="description">
+                            <span class="harga-coret" data-coret="false"></span>
+                            <%= utils.changeToRupiah(billingcycle[price]) %>
+                        </div>
+                    </div>
+                </li>
+            <% continue } %>
+
+            <% if (billingcycle[price] < 1) { %>
+            <li class="hidden billing-minus">
+                <div class="option" data-billingcycle="<%= price %>">
+                    <div class="title"> <%= utils.changeFormatBilling(price) %> <span class="gimmick-price"></span> </div>
+                    <div class="description">
+                        <span class="harga-coret" data-coret="false"></span>
+                        <%= utils.changeToRupiah(billingcycle[price]) %>
+                    </div>
+                </div>
+            </li>
+
+            <% } else { %>
+            <li>
+                <div class="option" data-billingcycle="<%= price %>">
+                    <div class="title"> <%= utils.changeFormatBilling(price) %> <span class="gimmick-price"></span> </div>
+                    <div class="description">
+                        <span class="harga-coret" data-coret="false"></span>
+                        <%= utils.changeToRupiah(billingcycle[price]) %>
+                    </div>
+                </div>
+            </li>
+            <% } %>
+        <% } %>
+    </ul>
+</div>

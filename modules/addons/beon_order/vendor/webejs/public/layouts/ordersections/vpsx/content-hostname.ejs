@@ -1,0 +1,47 @@
+<h4 class="form-title">
+    VPS Kredensial
+</h4>
+
+<p>
+    Informasi login aplikasi dan akses database
+</p>
+
+<div class="panel-body">
+    <form name="hostname-<%= index %>">
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                Hostname <span class="required">*</span>
+            </div>
+            <div class="col-md-8 form-group">
+                <input type="text"
+                       class="form-control validate-hostname"
+                       data-validation="false"
+                       placeholder="admin.example.com" name="credential-hostname"
+                       value="<%= credentials.hostname %>">
+                <span class="help-block none">Hostname kurang valid sob</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 appConfigLabel">
+                Password <span class="required">*</span>
+            </div>
+            <div class="col-md-8 form-group">
+                <input type="text"
+                       class="form-control validate-password-credentials"
+                       data-validation="false"
+                       placeholder="Contoh: b(WDrriun%U}5Pz" name="credential-password"
+                       value="<%= credentials.password %>">
+                <span class="help-block none">Password kurang valid sob</span>
+                <br>
+                <small>
+                    <strong>Passwordmu wajib :</strong> <br>
+                    - 8 karakter atau lebih.<br>
+                    - Menyertakan minimal 1 huruf besar/kapital <br>
+                    - Menyertakan minimal 1 digit nomer <br>
+                    - Menggunakan simbol kecuali ( :;'" )
+                </small>
+            </div>
+        </div>
+    </form>
+</div>

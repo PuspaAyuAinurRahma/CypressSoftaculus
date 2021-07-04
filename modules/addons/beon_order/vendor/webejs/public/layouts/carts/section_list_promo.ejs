@@ -1,0 +1,168 @@
+<div class="row" id="input-text-kupon" style="margin-top: 0;">
+    <div class="col-md-9">
+        <div class="form-group form-input-kode-kupon" style="margin-bottom: 10px;">
+            <input type="text" name="kupon" value="<%= code %>" class="form-control" <% if(code!=''){ %> readonly="readonly" <% } %> placeholder="Masukkan kode promo">
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+            <button class="btn btn-fill-primary btn-block <% if(code==''){ %>hidden<% } %>" id="hapus-kupon">Hapus</button>
+            <button class="btn btn-fill-primary btn-block <% if(code!=''){ %>hidden<% } %>" name="cek-kupon" disabled><i class="fa fa-spin fa-spinner hidden"></i>Gunakan</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="promo-code-available" data-disable="">
+            <div class="header-promo-available">
+                <div class="flex flex-row justify-space-between">
+                    <div class="header-left-panel">
+                        <h3 class="weight-no-padding-btm">Promo Hanya Buatmu</h3>
+                        <p>Biar makin Cuan! Kode Promo di bawah siap kamu gunakan.</p>
+                    </div>
+                    <div class="header-right-panel promo-right-panel">
+                        <div class="flex">
+                            <span class="open-icon pointer"><i class="fas fa-chevron-down"></i></span>
+                            <span class="close-icon pointer"><i class="fas fa-chevron-up hidden"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-available-promo hidden">
+                <% if (dataGeneralPromo.total_promo_personal > 0) { %>
+                <% dataGeneralPromo.promo_personal.forEach(function(value, index) { %>
+                <div class="panel-promo" id="promo-personal<%= index %>" data-index="<%= index %>">
+                    <div class="wrap-collabsible">
+                        <input id="promo-ke${index}" class="toggle hidden" value="<%= value.code %>" type="checkbox">
+                        <label for="promo-ke${index}" class="lbl-toggle">
+                            <h4 class="title-voucher">
+                                <%= value.promo_title %>
+                            </h4>
+                            <span class="promo-subtitle"><%= value.promo_subtitle %></span>
+                            <br>
+                            <span class="text-blue btn-open-detail-kupon pointer">Detail Voucher</span>
+                            <span class="text-blue btn-close-detail-kupon pointer hidden">Tutup Detail Voucher</span>
+                            <button class="btn btn-orange btn-gunakan-item-kupon right-button">Gunakan</button>
+                            <button class="btn btn-orange btn-digunakan-item-kupon hidden right-button" style="background-color: #bdbcbc;margin-top: -35px;">Digunakan</button>
+                            <span class="promo-alert-item"></span>
+                        </label>
+                    </div>
+                    <div class="detail-promo-content hidden">
+                        <div class="row sub-package">
+                            <div class="col-md-4">
+                                <i class="fas fa-tag icon-sub-package"></i>
+                                <h5 class="title-sub-package">Promo yang didapat</h5>
+                                <p class="value-sub-package"><%= value.value %></p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fas fa-clock icon-sub-package"></i>
+                                <h5 class="title-sub-package">Berlaku Sampai</h5>
+                                <p class="value-sub-package"><%= value.expirationdate %></p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fas fa-archive icon-sub-package"></i>
+                                <h5 class="title-sub-package">Sisa Promo</h5>
+                                <p class="value-sub-package"><%= value.promocanuse %></p>
+                            </div>
+                            
+                        </div>
+                        <div class="syarat-ketentuan">
+                            <h5 class="text-bold">Syarat dan Ketentuan</h5>
+                            <p>
+                                <%= value.description %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% }else{ %>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="alert alert-secondary" role="alert">
+                            <p class="text-center">Wah sayang sekali Sob, belum ada promo saat ini </p>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="promo-code-available" data-disable="">
+            <div class="header-promo-available">
+                <div class="flex flex-row justify-space-between">
+                    <div class="header-left-panel">
+                        <h3 class="weight-no-padding-btm">Promo Lain</h3>
+                        <p>Voucher lain yang juga bisa kamu gunakan.</p>
+                    </div>
+                    <div class="header-right-panel promo-right-panel">
+                        <div class="flex">
+                            <span class="open-icon pointer"><i class="fas fa-chevron-down hidden"></i></span>
+                            <span class="close-icon pointer"><i class="fas fa-chevron-up"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-available-promo" id="list-available-promo">
+                <% if (dataGeneralPromo.total_promo_general > 0) { %>
+                    <% dataGeneralPromo.promo_general.forEach(function(value, index) { %>
+                    <div class="panel-promo" id="promo-available<%= index %>" data-index="<%= index %>">
+                        <div class="wrap-collabsible">
+                            <input id="promo-ke${index}" class="toggle hidden" value="<%= value.code %>" type="checkbox">
+                            <label for="promo-ke${index}" class="lbl-toggle">
+                                <h4 class="title-voucher">
+                                    <%= value.promo_title %>
+                                </h4>
+                                <span class="promo-subtitle"><%= value.promo_subtitle %></span>
+                                <br>
+                                <span class="text-blue btn-open-detail-kupon pointer">Detail Voucher</span>
+                                <span class="text-blue btn-close-detail-kupon pointer hidden">Tutup Detail Voucher</span>
+                                <button class="btn btn-orange btn-gunakan-item-kupon right-button <%= (value.promotion_id == promoId) ? 'hidden' : '' %>">Gunakan</button>
+                                <button class="btn btn-orange btn-digunakan-item-kupon right-button <%= (value.promotion_id == promoId) ? '' : 'hidden' %>" style="background-color: #bdbcbc;margin-top: -35px;">Digunakan</button>
+                                <span class="promo-alert-item"></span>
+                            </label>
+                        </div>
+                        <div class="detail-promo-content hidden">
+                            <div class="row sub-package">
+                                <div class="col-md-4">
+                                    <i class="fas fa-tag icon-sub-package"></i>
+                                    <h5 class="title-sub-package">Promo yang didapat</h5>
+                                    <p class="value-sub-package"><%= value.value %></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-clock icon-sub-package"></i>
+                                    <h5 class="title-sub-package">Berlaku Sampai</h5>
+                                    <p class="value-sub-package"><%= value.expirationdate %></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-archive icon-sub-package"></i>
+                                    <h5 class="title-sub-package">Sisa Promo</h5>
+                                    <p class="value-sub-package"><%= value.promocanuse %></p>
+                                </div>
+                                
+                            </div>
+                            <div class="syarat-ketentuan">
+                                <h5 class="text-bold">Syarat dan Ketentuan</h5>
+                                <p style="padding-left: 15px;">
+                                    <%= value.description %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                    <% }else{ %>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="alert alert-secondary" role="alert">
+                                <p class="text-center">Wah sayang sekali Sob, belum ada promo saat ini </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+    
+</div>

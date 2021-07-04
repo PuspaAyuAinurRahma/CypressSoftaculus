@@ -1,0 +1,39 @@
+<div class="row wrapper-domain-nonavailable">
+    <div class="col-md-12">
+        <div class="flex flex-row display-domain justify-space-between">
+            <div class="name">
+                <span class="domain-name"><%= domain %></span>
+            </div>
+            <div class="flex flex-col">
+                <div data-price="<%= defaultPrice %>" data-actual-price="<%= actualPrice %>" class="harga-asli text-bold <%if (defaultPrice==0){ %> label label-success text-small <% } %>">
+                    <%if (defaultPrice==0){ %>
+                    FREE!
+                    <% } else{ %>
+                    <%= utils.changeToRupiah(defaultPrice) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="flex flex-row cta">
+                <input type="text" name="eppcode" class="form-control width-auto" placeholder="Epp Code">
+                <button class="btn btn-default btn-icon submit-eppcode" disabled>
+                    Submit
+                </button>
+                <button class="btn btn-default btn-icon delete-eppcode hidden">
+                    <i class="fas fa-trash-alt"></i>
+                    Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="persyaratan-domainid alert alert-info <%= usePersyaratan ? '' : 'hidden' %>">
+            <p class="text-bold"><i class="fas fa-exclamation-circle"></i> Persyaratan Domain <%= tld %></p>
+            <ul>
+                <%= textPersyaratan %>
+            </ul>
+            <br>
+            <span>Kunjungi <a style="font-weight: bold" href="https://www.jagoanhosting.com/tutorial/tutorial-domain/aktivasi-domain-id" target="_blank">Link berikut</a> untuk detailnya.</span>
+        </div>
+    </div>
+</div>

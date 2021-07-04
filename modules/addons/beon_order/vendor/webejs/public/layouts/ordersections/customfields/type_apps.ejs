@@ -1,0 +1,60 @@
+<div id="template-hosting" class="tab-pane show-not-important active" style="margin-bottom: 10px;">
+    <div class="title">
+        <h4 class="form-title" style="margin-bottom: 0px;"><%= description %></h4>
+    </div>
+    <div class="row" style="padding:20px 0px">
+        <div class="col-md-6">
+            <h5>Filter By Category: </h5>
+            <input type="text" rel="filter"  class="filter-apps-search-input hidden" />
+        </div>
+        <div class="col-md-6">
+            <select class="form-control" id="select-filter-apps">
+                <option value="">All</option>
+                <% AppsConfig.Category.forEach(function (item){ %>
+                    <option value="<%= item %>"><%= item %></option>
+                <% }) %>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" name="template_hotsing_apps" value="<%= value %>">
+    <div>
+        <div class="template-container padded">
+            <div class="row" style="margin-right: 0; margin-left: 0;">
+                <% fieldoptions.forEach(function (item){ %>
+                    <div class="col-md-<%= collumnlength %> target_filter" style="padding-left: 5px;padding-right: 5px;" data-appsdetail="<%= AppsConfig.Apps[item]['tag'] %>">
+                        <div class="template thin <% if(value==item){%> checked <% } %> " style="min-height: 74px;display:flex;align-items:center;" data-customfieldId="<%= id %>" aria-valuetext="<%= item %>">
+                            <div class="col-md-2">
+                                <div class="">
+                                    <% if(item=="None"){ %>
+                                        <i class="fa fa-2x fa-ban"></i>
+                                    <% }else{ %>
+                                        <img src="<%= AppsConfig.Apps[item]['img'] %>" alt="">
+                                    <% }%>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text" style="margin-left:0px;">
+                                    <h3 class="text-capitalize" style="margin-bottom: 0px;"><%= item %></h3>
+                                    <p><%= AppsConfig.Apps[item]['desc'] %></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <% if (AppsConfig.Apps[item]['link']!=""){ %>
+                                    <a href="<%= AppsConfig.Apps[item]['link'] %>?utm_source=member-area&amp;utm_medium=btn-detail-guide-order&amp;utm_campaign=hosting-installer" target="_blank" class="cursor-pointer-hosting-apps">
+                                        <div class="detail-class" style="text-align:center;">
+
+                                            Details
+                                        </div>
+                                    </a>
+
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+</div>

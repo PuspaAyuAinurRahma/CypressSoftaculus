@@ -1,0 +1,244 @@
+<h3 class="form-title text-center">Choose OS</h3>
+<ul class="nav nav-tabs">
+    <% if (selected.type == "os_only") { %>
+        <li class="<%= selected.bit == 'x32' ? 'active' : '' %>">
+            <a href="#32bit-<%= id %>" data-toggle="tab">32 bit OS</a>
+        </li>
+        <li class="<%= selected.bit == 'x64' ? 'active' : '' %>">
+            <a href="#64bit-<%= id %>" data-toggle="tab">64 bit OS</a>
+        </li>
+    <% } else { %>
+        <li>
+            <a href="#32bit-<%= id %>" data-toggle="tab">32 bit OS</a>
+        </li>
+        <li class="active">
+            <a href="#64bit-<%= id %>" data-toggle="tab">64 bit OS</a>
+        </li>
+    <% } %>
+</ul>
+
+<div class="tab-content">
+    <% if (selected.type == "os_only") { %>
+        <div class="template-container tab-pane <%= selected.bit == 'x32' ? 'active' : 'show-not-important' %>"
+             id="32bit-<%= id %>" data-bit="x32">
+            <% for (index in images['os_only']['x32']) { %>
+            <% if (index == selected.os && selected.bit == 'x32') { %>
+            <div class="col-md-6">
+                <div class="template checked" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                    <div class="col-md-2">
+                        <div class="img">
+                            <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                                 alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="text">
+                            <h3><%= index %></h3>
+                        </div>
+                    </div>
+
+                    <select name="osOptions" class="form-control dropdown-panel">
+                        <% images['os_only']['x32'][index].forEach(function (detail) { %>
+                        <% if (detail.configid == selected.configid) { %>
+                        <option value="<%= detail.configid %>" selected><%= detail.osversion %></option>
+                        <% } else { %>
+                        <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                        <% } %>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <% } else { %>
+            <div class="col-md-6">
+                <div class="template" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                    <div class="col-md-2">
+                        <div class="img">
+                            <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                                 alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="text">
+                            <h3><%= index %></h3>
+                        </div>
+                    </div>
+
+                    <select name="osOptions" class="form-control dropdown-panel">
+                        <% images['os_only']['x32'][index].forEach(function (detail) { %>
+                        <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div>
+
+        <div class="template-container tab-pane <%= selected.bit == 'x64' ? 'active' : 'show-not-important' %>"
+             id="64bit-<%= id %>" data-bit="x64">
+
+        <% for (index in images['os_only']['x64']) { %>
+        <% if (index == selected.os && selected.bit == 'x64') { %>
+        <div class="col-md-6">
+            <div class="template checked" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                <div class="col-md-2">
+                    <div class="img">
+                        <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                             alt="">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text">
+                        <h3><%= index %></h3>
+                    </div>
+                </div>
+
+                <select name="osOptions" class="form-control dropdown-panel">
+                    <% images['os_only']['x64'][index].forEach(function (detail) { %>
+                    <% if (detail.configid == selected.configid) { %>
+                    <option value="<%= detail.configid %>" selected><%= detail.osversion %></option>
+                    <% } else { %>
+                    <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                    <% } %>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="col-md-6">
+            <div class="template" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                <div class="col-md-2">
+                    <div class="img">
+                        <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                             alt="">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text">
+                        <h3><%= index %></h3>
+                    </div>
+                </div>
+
+                <select name="osOptions" class="form-control dropdown-panel">
+                    <% images['os_only']['x64'][index].forEach(function (detail) { %>
+                    <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+        <% } %>
+        <% } %>
+
+    </div>
+    <% } else {  %>
+        <div class="template-container tab-pane show-not-important" id="32bit-<%= id %>" data-bit="x32">
+            <% for (index in images['os_only']['x32']) { %>
+            <% if (index == selected.os && selected.bit == 'x32') { %>
+            <div class="col-md-6">
+                <div class="template checked" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                    <div class="col-md-2">
+                        <div class="img">
+                            <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                                 alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="text">
+                            <h3><%= index %></h3>
+                        </div>
+                    </div>
+
+                    <select name="osOptions" class="form-control dropdown-panel">
+                        <% images['os_only']['x32'][index].forEach(function (detail) { %>
+                        <% if (detail.configid == selected.configid) { %>
+                        <option value="<%= detail.configid %>" selected><%= detail.osversion %></option>
+                        <% } else { %>
+                        <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                        <% } %>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <% } else { %>
+            <div class="col-md-6">
+                <div class="template" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                    <div class="col-md-2">
+                        <div class="img">
+                            <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                                 alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="text">
+                            <h3><%= index %></h3>
+                        </div>
+                    </div>
+
+                    <select name="osOptions" class="form-control dropdown-panel">
+                        <% images['os_only']['x32'][index].forEach(function (detail) { %>
+                        <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div>
+
+        <div class="template-container tab-pane active" id="64bit-<%= id %>" data-bit="x64">
+
+        <% for (index in images['os_only']['x64']) { %>
+        <% if (index == selected.os && selected.bit == 'x64') { %>
+        <div class="col-md-6">
+            <div class="template checked" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                <div class="col-md-2">
+                    <div class="img">
+                        <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                             alt="">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text">
+                        <h3><%= index %></h3>
+                    </div>
+                </div>
+
+                <select name="osOptions" class="form-control dropdown-panel">
+                    <% images['os_only']['x64'][index].forEach(function (detail) { %>
+                    <% if (detail.configid == selected.configid) { %>
+                    <option value="<%= detail.configid %>" selected><%= detail.osversion %></option>
+                    <% } else { %>
+                    <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                    <% } %>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="col-md-6">
+            <div class="template" data-type="os_only" data-template="<%= index %>" aria-valuetext="<%= index %>" aria-hidden="<%= index %>">
+                <div class="col-md-2">
+                    <div class="img">
+                        <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= index.toLowerCase() %>.png"
+                             alt="">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text">
+                        <h3><%= index %></h3>
+                    </div>
+                </div>
+
+                <select name="osOptions" class="form-control dropdown-panel">
+                    <% images['os_only']['x64'][index].forEach(function (detail) { %>
+                    <option value="<%= detail.configid %>"><%= detail.osversion %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+        <% } %>
+        <% } %>
+
+    </div>
+    <% } %>
+</div>

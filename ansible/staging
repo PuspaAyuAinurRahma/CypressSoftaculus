@@ -1,0 +1,21 @@
+[dev_team]
+staging_dev ansible_host=101.50.2.231
+
+[dev_team:vars]
+web_owner=bisdevwhyalways
+app_env=stag_dev
+app_domain=bisdev.whyalways.me
+cache_dir=/whmcsdata/templates_c
+
+[om_team]
+staging_om ansible_host=101.50.1.74
+
+[om_team:vars]
+web_owner=mywhyalways
+app_env=stag_om
+app_domain=my.whyalways.me
+cache_dir=/whmcsdata/templates_c
+
+[staging:children]
+dev_team
+om_team

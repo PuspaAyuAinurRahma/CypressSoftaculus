@@ -1,0 +1,237 @@
+/*.invoice-container{*/
+    /*padding:50px;*/
+    /*border-radius: 0px;*/
+/*}*/
+.invoice-container *{
+    /*font-family: Monsterrat,sans-serif!important;*/
+}
+.invoice-container h1, .invoice-container h2,.invoice-container h3, .invoice-container h4{
+    margin: 0px;
+}
+/*.invoice-container .invoice-status {*/
+    /*margin: 0px;*/
+    /*text-transform: uppercase;*/
+    /*font-size: 18px;*/
+    /*font-weight: bold;*/
+    /*padding: 5px 20px;*/
+/*}*/
+.margin-left-5{
+    margin-left: 5px!important;
+}
+.margin-left-10{
+    margin-left: 10px!important;
+}
+.margin-left-15{
+    margin-left: 15px!important;
+}
+.margin-top-5{
+    margin-top: 5px!important;
+}
+.margin-top-10{
+    margin-top: 10px!important;
+}
+.margin-top-15{
+    margin-top: 15px!important;
+}
+.margin-top-30{
+    margin-top: 30px!important;
+}
+.panel-white{
+    border: 1px solid black;
+}
+.countdown {
+    font-size: 24px;
+    display: table;
+    width: 100%;
+}
+.countdown-item {
+    float: left;
+    width: 22%;
+}
+span.countdown-timer {
+    display: block;
+    font-weight: bold;
+    font-size: 31px;
+    color: #f48b30;
+}
+span.countdown-label {
+    font-size: 14px;
+}
+.countdown-divider {
+    display: block;
+    width: 4%;
+    float: left;
+}
+.paymentmethod-img{
+    height: 50px;
+}
+span.bankmethod {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+span.paymentcode {
+    font-size: 21px;
+    font-weight: bold;
+}
+.panel.panel-bg-steel {
+    background: #eeeeef;
+    padding: 10px 30px;
+}
+h4.payment-tutorial-title {
+    font-weight: bold;
+    text-align: center;
+}
+p.invoice-total {
+    font-size: 21px;
+    font-weight: bold;
+    /*color: red;*/
+}
+a.invoicetotal-copy {
+    font-size: 12px;
+}
+p.payment-description {
+    font-style: italic;
+}
+.panel-orange {
+    border: 1px solid #f48b30;
+}
+.subaction-btn{
+    font-style: italic;
+}
+
+.invoice-total .label { border-radius: 10px; position: relative; top: -2px;}
+.invoice-status { text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px !important; font-weight: 600; }
+.invoice-status span { white-space: nowrap; }
+.draft { color: #999; border: 1px solid #999; }
+.draft, .unpaid { padding: 5px 15px; }
+.unpaid { color: #c00; border: 1px solid #c00; }
+.paid { color: #779500; border: 2px solid #779500; }
+.paid, .refunded { padding: 5px 15px; }
+.refunded { color: #248; border: 1px solid #248; }
+.cancelled { color: #888; border: 1px solid #888; padding: 5px 15px; }
+.collections { color: #fc0; border: 1px solid #fc0; padding: 5px 15px; }
+.tutorial { font-size: 14px; }
+.tutorial ul { margin-top: 10px; font-size: 14px; }
+/*Vertical Steps*/
+.list-group.vertical-steps{
+    padding-left:10px;
+    margin-top: 20px;
+}
+.list-group.vertical-steps .list-group-item{
+    border:none;
+    border-left: 3px solid #a98fe0;
+    box-sizing:border-box;
+    border-radius:0;
+    counter-increment: step-counter;
+    padding-left:20px;
+    padding-right:0px;
+    padding-bottom:12px;
+    padding-top:0px;
+    background: #eeeeef;
+}
+.list-group.vertical-steps .list-group-item.active{
+    background-color:transparent;
+    color:inherit;
+}
+.list-group.vertical-steps .list-group-item:last-child{
+    border-left:3px solid transparent;
+    padding-bottom:0;
+}
+.list-group.vertical-steps .list-group-item::before {
+    border-radius: 50%;
+    background-color: #9370db;
+    color: #fff;
+    content: counter(step-counter);
+    display: inline-block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    margin-left: -35px;
+    text-align: center;
+    width: 25px;
+}
+.list-group.vertical-steps .list-group-item span,
+.list-group.vertical-steps .list-group-item a{
+    display:block;
+    overflow:hidden;
+    padding-top:2px;
+}
+/*Active/ Completed States*/
+.list-group.vertical-steps .list-group-item.active::before{
+    background-color:#0052c2;
+    color:#fff;
+}
+.list-group.vertical-steps .list-group-item.completed{
+    border-left:3px solid #0052c2;
+}
+.list-group.vertical-steps .list-group-item.completed::before{
+    background-color:#0052c2;
+    color:#fff;
+}
+.list-group.vertical-steps .list-group-item.completed:last-child{
+    border-left:3px solid transparent;
+}
+.invoice-container {
+    padding: 0px;
+    border-radius: 0px;
+}
+#panel-invoice{
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    padding: 15px 30px 15px 30px;
+}
+.invoice-status{
+    margin-top: 10px;
+}
+@media (max-width: 895px){
+    .invoice-container {
+         margin: 0px;
+    }
+    .invoice-container {
+        padding: 15px;
+    }
+
+}
+@media (max-width: 767px){
+    .invoice-container {
+        padding: 15px;
+    }
+}
+@media (max-width: 600px) {
+    #panel-invoice{
+        padding:10px;
+    }
+    #panel-invoice .panel-body{
+        padding:0px;
+    }
+    .panel.panel-bg-steel{
+        padding: 10px;
+    }
+}
+.modal-header.payment-modal-header {
+    background: #340744;
+    color: white;
+}
+.panel-heading.payment-modal-subheading {
+    color: #340744;
+    font-weight: bold;
+}
+@media (min-width: 768px){
+    #beoncustomorderchoosepayment .modal-dialog.modal-sm{
+        width: 360px !important;
+    }
+}
+.panel-title.payment-panel-title {
+    border-bottom: 1px solid #c1c1c1;
+    padding: 2px;
+}
+.bank-img{
+    width: 80px;
+}
+.modal-content{
+    width: 100% !important;
+}
+#Primary_Navbar-Orders .badge {
+    background-color: #d93031;
+}
+

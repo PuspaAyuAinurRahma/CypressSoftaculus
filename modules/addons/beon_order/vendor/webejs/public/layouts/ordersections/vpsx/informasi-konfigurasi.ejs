@@ -1,0 +1,55 @@
+<div class="align-items-center panel-penawaran penawaran-orange" style="margin: 10px 0;">
+    <h4 class="form-title">
+        <i class="fa fa-cog"></i> Konfigurasi Berhasil Disimpan
+    </h4>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5> <b>VPS Kredensial</b></h5>
+            <table class="table-credentials">
+                <tr>
+                    <td>Hostname</td>
+                    <td>:</td>
+                    <td><%= hostname %></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td>
+                        <span class="password-masking">************</span>
+                        <span><i class="fa toggle-password fa-eye cursor-pointer" data-password="<%= password %>"></i></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h5> <b>X-Cube</b> </h5>
+            <table class="table-credentials">
+                <tr>
+                    <td>OS</td>
+                    <td>:</td>
+                    <td><%= os %></td>
+                </tr>
+                <% if (type == 'aio') { %>
+                <tr>
+                    <td>Aplikasi</td>
+                    <td>:</td>
+                    <td><%= template.apps %></td>
+                </tr>
+                <% } %>
+
+                <% if (type == 'ospanel') { %>
+                <tr>
+                    <td>Panel</td>
+                    <td>:</td>
+                    <td><%= template.panel %></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+
+        <div class="col-md-12">
+            <button class="btn btn-orange sunting-konfigurasi">Sunting Konfigurasi</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<h4 class="form-title">
+    Pilih paket
+</h4>
+
+<div class="dropdown_select_wrapper" data-type="product">
+    <ul class="default_option">
+        <li>
+            <div class="option" data-pid="<%= firstPid %>">
+                <div class="title"><%= currentProduct['details']['name'] %></div>
+                <div class="description"><%= utils.showDetailProducts(currentProduct['details']['description']) %></div>
+            </div>
+        </li>
+    </ul>
+    <ul class="select_ul">
+        <% for (product in products) { %>
+            <% if (products[product]['details']['name'] == currentProduct['details']['name']) { %>
+            <li class="hidden">
+            <% } else { %>
+            <li>
+            <% } %>
+                <div class="option" data-pid="<%= product %>">
+                    <div class="title"><%= products[product]['details']['name']%></div>
+                    <div class="description"><%= utils.showDetailProducts(products[product]['details']['description']) %></div>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+</div>

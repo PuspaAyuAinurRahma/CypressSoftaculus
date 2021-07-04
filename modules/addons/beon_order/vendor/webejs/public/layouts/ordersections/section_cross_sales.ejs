@@ -1,0 +1,11 @@
+<div class="align-items-center cross-sales-content" data-crosssales="<%=pid%>" data-crosssales-id="<%=id%>">
+    <p class="panel-penawaran <% if(!ischeck) { %> penawaran-primary <% } %>">
+        <span style="padding-right: 8px;">
+             <input type="checkbox" name="check_crosssales" value="<%=pid%>" <% if(ischeck) { %> checked <% } %>>
+        </span>
+        <%=description%>
+        <span>
+            <button class="btn btn-default right-button <% if(!ischeck || paytype == "onetime") { %> hidden <% } %>" name="edit_crosssales" style="margin-top: -6px;font-weight: bold;">Edit</button>
+        </span>
+    </p>
+</div>

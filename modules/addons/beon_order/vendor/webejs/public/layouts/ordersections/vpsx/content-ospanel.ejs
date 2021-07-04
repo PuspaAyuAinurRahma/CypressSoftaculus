@@ -1,0 +1,97 @@
+<div class="template-container">
+
+    <div class="row">
+        <% for (index in images['os_panel']) {%>
+            <% if (index == selected.panel) { %>
+                <div class="col-md-6">
+                    <div class="template checked"
+                         data-type="ospanel"
+                         template-type="ospanel"
+                         data-template="<%= images['os_panel'][index][selected.indexPanel].configid %>"
+                         aria-valuetext="<%= index %>"
+                         aria-hidden="<%= images['os_panel'][index][selected.indexPanel]['distro'] %>"
+                    >
+                        <div class="col-md-2">
+                            <div class="img">
+                                <% var imgSrc = index.toLowerCase().replace(/ /g,'_'); %>
+                                <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= imgSrc %>.png"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="text">
+                                <h3> <%= index %> </h3>
+                            </div>
+                        </div>
+                        <% if (images['os_panel'][index][selected.indexPanel].link != null) { %>
+                            <div class="col-md-3">
+                                <div class="detail-class" data-templateos="<%= images['os_panel'][index][selected.indexPanel].id %>">
+
+                                    <a href="<%= images['os_panel'][index][selected.indexPanel].link %>?utm_source=member-area&utm_medium=btn-detail-guide-order&utm_campaign=vps-x/" target="_blank" class="cursor-pointer">
+                                        Details
+                                    </a>
+
+                                </div>
+                            </div>
+                        <% } %>
+                        <select name="osPanelOptions" class="form-control dropdown-panel">
+                            <% images['os_panel'][index].forEach(function(detail) { %>
+                                <% if (selected.configid == detail.configid) { %>
+                                <option selected value="<%= detail.configid %>"> <%= detail.distro %> <%= detail.osversion %></option>
+                                <% } else  {%>
+                                <option value="<%= detail.configid %>"> <%= detail.distro %> <%= detail.osversion %></option>
+                                <% } %>
+                            <% }) %>
+                        </select>
+                        <br>
+                    </div>
+
+                </div>
+            <% } else { %>
+                <div class="col-md-6">
+                    <div class="template"
+                         data-type="ospanel"
+                         template-type="ospanel"
+                         data-template="<%= images['os_panel'][index][0].configid %>"
+                         aria-valuetext="<%= index %>"
+                         aria-hidden="<%= images['os_panel'][index][0]['distro'] %>"
+                    >
+                        <div class="col-md-2">
+                            <div class="img">
+                                <% var imgSrc = index.toLowerCase().replace(/ /g,'_'); %>
+                                <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= imgSrc %>.png"
+                                     alt="">
+                                <div class="centang none">
+                                    <i class="fa fa-check margin-right-15 icon-configs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="text">
+                                <h3> <%= index %> </h3>
+                            </div>
+                        </div>
+                        <% if (images['os_panel'][index][0].link != null) { %>
+                            <div class="col-md-3">
+                                <div class="detail-class none" data-templateos="<%= images['os_panel'][index][0].id %>">
+
+                                    <a href="<%= images['os_panel'][index][0].link %>?utm_source=member-area&utm_medium=btn-detail-guide-order&utm_campaign=vps-x/" target="_blank" class="cursor-pointer">
+                                        Details
+                                    </a>
+
+                                </div>
+                            </div>
+                        <% } %>
+                        <select name="osPanelOptions" id="" class="form-control dropdown-panel">
+                            <% images['os_panel'][index].forEach(function(detail) { %>
+                            <option value="<%= detail.configid %>"> <%= detail.distro %> <%= detail.osversion %></option>
+                            <% }) %>
+                        </select>
+                        <br>
+                    </div>
+
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>

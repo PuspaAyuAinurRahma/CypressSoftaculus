@@ -1,0 +1,67 @@
+<div class="row" id="address-form-wrapper">
+    <div class="col-md-12">
+        <form id="address-form" method="POST" action="">
+            <div class="form-group">
+                <label>Negara *</label>
+                <select name="country" class="form-control">
+                    <option value="ID">Indonesia</option>
+                </select>
+            </div>
+            <div class="form-group state">
+                <label>Provinsi *</label>
+                <select class="form-control" name="state" required="">
+
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Kota *</label>
+                        <input class="form-control validity-no-char" type="text" name="city" placeholder="Ex: Jakarta" maxlength="15" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Kode Pos *</label>
+                        <input class="form-control onlyNumber" type="number" name="postcode" placeholder="Ex: 88888" required="" minlength="5" maxlength="6" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="" data-original-title="Kode Pos tidak valid"
+                               maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Alamat Lengkap *</label><br>
+                <small>Alamat tidak boleh lebih dari 50 karakter dan tidak menggunakan karakter spesial</small>
+                <textarea class="form-control validity-no-char" type="text" name="address1" placeholder="Ex: Jl Majapahit" required="" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="" data-original-title="Alamat tidak valid"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="alert alert-success" style="padding-top: 5px;padding-bottom: 5px;">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 col-xs-2" style="padding-left: 10px; padding-right: 0px;">
+                            <input type="checkbox" name="is_register_aff">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10" style="padding-left: 10px;">
+                            <p style="margin-bottom: 0px; color: #333; font-weight: bold;">Daftar Afiliasi Sekarang!</p>
+                            <p style="margin-top: 5px; margin-bottom: 5px;"><small style="font-size: 11px; color: #333">Dengan gabung Program Afiliasi Jagoan Hosting, kamu #BisaBanget dapetin Komisi dan Untung Jutaan Rupiah.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-fill-primary"> <i class="fa fa-spinner fa-spin hidden"></i> Daftar </button>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-block btn-default back-button" data-backto="2"> Kembali </a>
+            </div>
+
+            <div class="flex justify-space-between align-items-center">
+                <div class="progress w-100">
+                    <div class="progress-bar primary-progressbar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                    </div>
+                </div>
+                <div>
+                    <strong>3/3</strong>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

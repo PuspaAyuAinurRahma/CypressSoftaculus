@@ -1,0 +1,11 @@
+
+<div class="align-items-center hosting_apps_addon" <% if(ishidden){%> hidden <% } %> aria-hosting-apps="<%= related_apps %>">
+    <div class="penawaran-info" style="margin-bottom: 10px;">
+        <div class="form-check">
+            <input data-customfieldId="<%= id %>" <% if(value=="on"){%> checked <%} %> class="form-check-input" type="checkbox" name="<%= fieldname %>" >
+            <label class="form-check-label">
+                <%= description %>
+            </label>
+        </div>
+    </div>
+</div>

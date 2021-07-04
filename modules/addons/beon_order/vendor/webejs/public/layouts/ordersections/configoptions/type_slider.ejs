@@ -1,0 +1,26 @@
+<div class="spec-slider-container">
+    <% if (optioncode=='quota'){ %>
+        <clr-icon size="48" shape="ssd"></clr-icon>
+    <% } %>
+    <% if (optioncode=='storage'){ %>
+        <clr-icon size="48" shape="container-volume" solid></clr-icon>
+    <% } %>
+    <% if (optioncode=='Jumlah Akun'){ %>
+        <clr-icon size="48" shape="users" solid></clr-icon>
+    <% } %>
+    <% if (optioncode=='speed'){ %>
+        <clr-icon size="48" shape="cpu"></clr-icon>
+    <% } %>
+    <% if (optioncode=='pmem'){ %>
+        <clr-icon size="48" shape="memory"></clr-icon>
+    <% } %>
+
+    <div class="input-group">
+        <label for="configoption[<%=id%>]" class="configoption-label"><span><%= optionname %></span>
+            <span class="configoptions-value-wrapper">
+                <span class="configoption-value"><%= selectedqty %></span><%= optionlabel %>
+            </span>
+        </label>
+        <input type="text" class="js-range-slider" name="configoption[<%=id%>]" data-configoption="<%=id%>" value="<%= value %>" />
+    </div>
+</div>

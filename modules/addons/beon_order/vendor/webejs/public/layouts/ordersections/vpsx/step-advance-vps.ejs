@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="form-title title">
+            Konfigurasi VPS
+        </h4>
+    </div>
+
+    <div class="col-md-8">
+        <div class="root">
+            <div class="container-step">
+                <ul class="progressbar">
+                    <li class="active" data-step="1">Hostname</li>
+                    <li data-step="2">Pilihan X-Cube</li>
+                    <li data-step="3">Konfigurasi</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="alert alert-danger alert-config hidden" id="config-error-<%= index %>" role="alert" data-alert-for="warning">
+            Waduh, Kode Verifikasi kamu sudah expired sob! coba kirim ulang deh
+        </div>
+    </div>
+</div>
+
+<div class="configuration row">
+    <div class="col-md-12 content-hostname active" id="content-hostname" data-step="1">
+
+    </div>
+
+    <div class="col-md-12 content-template hidden" id="content" data-step="2">
+
+    </div>
+
+    <div class="hidden" data-step="3">
+        <div class="col-md-12 content-konfigurasi" id="content-konfigurasi">
+        </div>
+        <div class="col-md-12 hidden" id="info-konfigurasi">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <button class="btn btn-default hidden text-bold" name="back-configuration">
+           <b> < Sebelumnya </b>
+        </button>
+    </div>
+    <div class="col-md-6 text-right">
+        <button class="btn btn-default <%= hostname.length > 1 && password.length > 1  ? '' : 'hidden' %> text-bold"
+                name="next-configuration">
+            <b> Pilih X-Cube > </b>
+        </button>
+        <button class="btn btn-orange hidden"
+                name="finish-configuration">
+            <b> Save Configuration </b>
+        </button>
+    </div>
+</div>

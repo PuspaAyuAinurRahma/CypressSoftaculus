@@ -1,0 +1,22 @@
+<div class="flex flex-row">
+    <h5 class="title"> Diskon Promo</h5>&nbsp;&nbsp;&nbsp;
+    <span class="remove-promo remove-section-cart pointer" data-index="<%= index %>"><i class="fas fa-times-circle"></i></span>
+</div>
+<div class="flex flex-row justify-space-between">
+    <div class="sub-title"><%= name %></div>
+    <div class="sub-title">
+        - <%= utils.changeToRupiah(nominalPidPromo) %>
+    </div>
+</div>
+<div class="flex flex-row justify-space-between">
+    <div class="sub-title keterangan">
+        Diskon Potongan <%= price %> <% if(type_promo == "Percentage"){ %> % <% } %> x <%= countPromoUsed %>
+    </div>
+</div>
+<% if(codeStatus == 'Error'){ %>
+    <div class="flex flex-row justify-space-between">
+        <div class="sub-title keterangan-error" style="font-size: 11px; margin-top: -6px; margin-bottom: 6px">
+            Kode Promo yang Sobat pakai belum memenuhi kriteria.
+        </div>
+    </div>
+<% } %>

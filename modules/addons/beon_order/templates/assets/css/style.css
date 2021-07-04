@@ -1,0 +1,54 @@
+.selected, .selected:active, .selected:focus{
+    color: #333;
+    background-color: #fff;
+    /* border-color: #ccc; */
+    border: 1px solid #620057;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px 0px #62005778;
+}
+
+#registration-modals .intl-tel-input .country-list{
+    white-space: inherit;
+    width: 27rem;
+}
+
+#registration-modals .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag{
+    width: 75px;
+}
+
+#registration-modals .intl-tel-input .selected-flag .iti-arrow{
+    right: 5px;
+}
+
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input{
+    padding-left: 90px !important;
+}
+
+
+.modal-header.payment-modal-header {
+    background: #340744;
+    color: white;
+}
+.panel-heading.payment-modal-subheading {
+    color: #340744;
+    font-weight: bold;
+}
+.panel-title.payment-panel-title {
+    border-bottom: 1px solid #c1c1c1;
+    padding: 2px;
+}
+.bank-img{
+    width: 80px;
+}
+
+#beoncustomorderchoosepayment .modal-sm{
+    width: 360px;
+}
+
+.text-small{
+    font-size: small;
+}
+
+.modal-login, .modal-register{
+    margin-top: -20px;
+}

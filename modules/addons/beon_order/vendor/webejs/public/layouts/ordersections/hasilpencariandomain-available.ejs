@@ -1,0 +1,58 @@
+<div class="row wrapper-domain-available">
+    <div class="col-md-12">
+        <div class="flex flex-row display-domain justify-space-between">
+            <div class="name">
+                <span class="domain-name"><%= dataDomain.domainName %></span>
+            </div>
+            <div class="flex domain-price-column" style="justify-content: space-between;">
+                <span class="harga-coret"
+                      style="display:none; color:red; padding-top: 12px;padding-right: 10px;font-size: 12px;font-style: italic;"
+                ></span>
+                <div data-price="<%= defaultPrice %>" data-actual-price="<%= actualPrice %>" class="harga-asli text-bold <%if (defaultPrice==0){ %> label label-success text-small <% } %>">
+                    <%if (defaultPrice==0){ %>
+                    FREE!
+                    <% } else{ %>
+                    <%= defaultPrice %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="flex flex-row cta">
+                <select <% if(isFreedomain){ %> disabled="disabled" <% } %> class="form-control width-auto" name="registerDomainBillingcycle">
+                <% for (billing in dataDomain.pricing) { %>
+                <option value="<%= billing %>" data-register-price="<%= dataDomain.pricing[billing].register %>"><%= billing %> Tahun</option>
+                <% } %>
+                </select>
+                <button class="btn btn-block btn-orange btn-icon" name="buy-domain">
+                    <i class="fas fa-cart-arrow-down"></i> Tambah
+                </button>
+                <button class="btn btn-block btn-default btn-icon hidden" name="delete-domain">
+                    <i class="fas fa-trash-alt"></i> Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="persyaratan-domainid alert alert-info <%= usePersyaratan ? '' : 'hidden' %>">
+            <p class="text-bold"><i class="fas fa-exclamation-circle"></i> Persyaratan Domain <%= tld %></p>
+            <ul>
+                <%= textPersyaratan %>
+            </ul>
+            <br>
+            <span>Kunjungi <a style="font-weight: bold" href="https://www.jagoanhosting.com/tutorial/tutorial-domain/aktivasi-domain-id" target="_blank">Link berikut</a> untuk detailnya.</span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!--        <div class="alert alert-info requirement-domain">-->
+        <!--            <p><span><i class="fas fa-question-circle color-info"></i></span> <b>Persyaratan Beli Domain</b></p>-->
+        <!--        </div>-->
+        <div class="alert alert-danger duplicate-domain hidden">
+            <p><i class="fas fa-exclamation"></i> Domain <b><%= dataDomain.domainName %></b> sudah ada di trolli,
+                Coba lagi dengan Domain yang lain, Sob!
+            </p>
+        </div>
+    </div>
+</div>

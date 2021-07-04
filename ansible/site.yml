@@ -1,0 +1,21 @@
+---
+
+- name: Deploy Server Modules VPS X
+  hosts: all
+
+  pre_tasks:
+
+    - name: Ensure some packages is exists
+      yum:
+        name:
+          - rsync
+          - unzip
+
+  roles:
+
+    - jagoanhosting.appmodules
+
+#  tasks:
+#
+#    - name: Clear Template Cache
+#      command: rm -rf "{{ whmcs_cache_dir }}"

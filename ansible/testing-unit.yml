@@ -1,0 +1,29 @@
+---
+
+- name: Ansible Playbook to run testing unit
+  hosts: all
+
+  tasks:
+    - name: Start Testing
+      command: echo 'Testing'
+
+#    - name: Build Testing API
+#      command: ./vendor/bin/codecept build
+#      args:
+#        chdir: "{{ api_home_dir }}"
+#      changed_when: False
+#      become: True
+#      become_user: "{{ api_web_user }}"
+#
+#    - name: Run API Test
+#      command: ./vendor/bin/codecept run api --debug
+#      args:
+#        chdir: "{{ api_home_dir }}"
+#      changed_when: False
+#      become: True
+#      become_user: "{{ api_web_user }}"
+#      register: api_test_result
+#
+#    - name: Show debug
+#      debug:
+#        msg: "{{ api_test_result.stdout }}"

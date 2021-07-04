@@ -1,0 +1,42 @@
+<div class="panel">
+    <div class="panel-heading panel-heading-order">
+        <h3 class="title text-center">Rangkuman Pembelian</h3>
+    </div>
+
+    <div class="panel-body panel-body-order no-padding cart">
+        <div id="item-cart">
+
+        </div>
+        <div class="item show-promo hidden"></div>
+        <div class="item subtotal">
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title unset text-bold"><strong>Sub total</strong></div>
+                <div class="sub-title unset"> <%= utils.changeToRupiah(subtotal) %> </div>
+            </div>
+            <div class="flex flex-row justify-space-between">
+                <div class="sub-title unset text-bold"><strong>PPN 10%</strong></div>
+                <div class="sub-title unset"> <%= utils.changeToRupiah(ppn) %> </div>
+            </div>
+        </div>
+        <div class="item total">
+            <div class="flex flex-row justify-space-between align-items-center promo-potongan hidden">
+                <div class="sub-title unset text-bold"><span class="text-promo"></span></div>
+                <div class="sub-title unset price-promo"></div>
+            </div>
+            <div class="flex flex-row justify-space-between align-items-center">
+                <div class="sub-title unset text-bold"><strong>Total</strong></div>
+                <div class="sub-title unset price"> <%= utils.changeToRupiah(total) %> </div>
+            </div>
+            <div class="input-promo"></div>
+            <div class="ganti-promo"></div>
+            <%if(gimmicktotal>0){ %>
+                <div class="gimmick_total_discount">
+                    <p class="alert alert-success" style="margin-bottom: 10px; text-align: center;">
+                       Selamat! Kamu Menghemat <b><%= utils.changeToRupiah(gimmicktotal) %></b>
+                    </p>
+                </div>
+            <% } %>
+            <button id="payment-btn" class="btn btn-pink btn-block"><strong>Bayar sekarang</strong></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="config_text">
+    <h4 class="form-title"> <%= fieldname %> <% if(required!=""){ %><b style="color: red">*</b><% }%> <span class="tambah-domain-info" data-original-title="Gunakan contoh IP berikut: 192.168.101.1 | Apa bila belum mendapatkan IP server, karena masih dalam proses order. Kamu dapat menggantinya setelah VPS mu aktif" data-toggle="tooltip" data-placement="top"><i class="fas fa-question-circle color-info"></i></span>
+    </h4>
+    <p>Masukkan IP Server yang akan kamu pasang cPanel</p>
+    <div class="form-group">
+        <input type="text" data-customfieldId="<%= id %>" name="ip_address" class="form-control" placeholder="" value="<%= value %>"/>
+    </div>
+</div>

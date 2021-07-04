@@ -1,0 +1,32 @@
+<% for (domain in domainsSliced) { %>
+<div class="row wrapper-domain-available">
+    <div class="col-md-12">
+        <div class="flex flex-row display-domain justify-space-between">
+            <div class="name">
+                <span class="domain-name"><%= domainsSliced[domain].domainName %></span>
+            </div>
+            <div class="flex domain-price-column" style="justify-content: space-between;">
+                <span class="harga-coret"
+                      style="display:none; color:red; padding-top: 12px;padding-right: 10px;font-size: 12px;font-style: italic;"
+                ></span>
+                <div class="harga-asli text-bold">
+                    <%= domainsSliced[domain].pricing['1'].register %>
+                </div>
+            </div>
+            <div class="flex flex-row cta">
+                <select class="form-control width-auto" name="registerDomainBillingcycleSuggested">
+                    <% for (billing in domainsSliced[domain].pricing) { %>
+                        <option value="<%= billing %>" data-register-price="<%= domainsSliced[domain].pricing[billing].register %>"><%= billing %> Tahun</option>
+                    <% } %>
+                </select>
+                <button class="btn btn-block btn-orange btn-icon" name="buy-domain-serupa">
+                    <i class="fas fa-cart-arrow-down"></i> Tambah
+                </button>
+                <button class="btn btn-block btn-default btn-icon hidden" name="delete-domain-serupa">
+                    <i class="fas fa-trash-alt"></i> Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>

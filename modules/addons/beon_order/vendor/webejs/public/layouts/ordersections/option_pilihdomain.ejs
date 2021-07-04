@@ -1,0 +1,17 @@
+<div class="dropdown_select_wrapper col-md-12" style="border: 0;">
+    
+    <div class="col-md-10">
+        <div class="form-group">
+            <select name="pilih_domain" class="form-control">
+                <option value="">Pilih Domain</option>
+                <% for (domain in domains) { %>
+                    <option value="<%= domains[domain].domain %>" data-index="<%= domain %>"><%= domains[domain].domain %></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-fill-primary btn-block" name="gunakan_pilih_domain"><i class="fa fa-spin fa-spinner hidden"></i>Gunakan</button>
+    </div>
+</div>

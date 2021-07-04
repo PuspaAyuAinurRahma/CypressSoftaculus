@@ -1,0 +1,8 @@
+[production]
+prod ansible_host=101.50.1.74
+
+[production:vars]
+web_owner=jagfam
+app_env=prod
+app_domain=member.jagoanhosting.com
+cache_dir=/jagfam_temp/templates_c

@@ -1,0 +1,18 @@
+<div class="item" data-type="cart">
+    <div class="flex flex-row">
+        <h5 class="title" data-attr-scroll="panel<%= index %>"> <%= type == "transfer" ? "Transfer" : "Registrasi" %> Domain</h5>&nbsp;&nbsp;&nbsp;
+        <span class="remove-section-cart pointer" data-index="<%= index %>"><i class="fas fa-times-circle"></i></span>
+    </div>
+    <div class="flex flex-row justify-space-between">
+        <div class="sub-title"><%= name %></div>
+        <div class="sub-title">
+            <%if (strike_price !=0) { %>
+                <del style="font-size: 10px; font-weight: bold; font-style: italic"><%= strike_price %> </del>
+            <% } %>
+            <%= price %>
+        </div>
+    </div>
+    <div class="flex flex-row justify-space-between">
+        <div class="sub-title keterangan"><%= type == "transfer" ? "Trans" : "Reg" %>. <%= billingcycle %> tahun </div>
+    </div>
+</div>

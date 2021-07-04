@@ -1,0 +1,14 @@
+<% for (let id in cross_sales) { %>
+    <div class="align-items-center">
+        <p class="panel-upsales">
+            <input type="checkbox"
+                   name="addon"
+                   value="<%= id %>"
+                   id="<%= randomId + id %>"
+                   data-type="<%= cross_sales[id].type %>"
+                   <%= (id in cart) ? 'checked' : '' %>
+            >
+            <label for="<%= randomId + id %>"><%= cross_sales[id].text %></label>
+        </p>
+    </div>
+<% } %>

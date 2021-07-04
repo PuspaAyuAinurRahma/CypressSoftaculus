@@ -1,0 +1,26 @@
+---
+#Module Name For WHMCS
+app_module_namespace: beon_order
+
+#Module Type (servers, addons)
+app_module_type: addons
+
+#The Modules Directory
+app_home_dir: "/home/bisdev/whmcs/src/html/modules"
+
+#File Ownership filled by host vars
+app_file_ownership: "{{ web_owner }}"
+app_file_group: "{{ web_owner }}"
+
+#Specific Modules Directory
+app_module_dir: "{{ app_home_dir }}/{{ app_module_type }}/{{ app_module_namespace }}"
+app_cache_dir: "/home/bisdev/whmcs/src/html{{ cache_dir }}"
+
+#Modules Directory on runner
+src_root_dir: "{{ playbook_dir }}/../modules"
+src_module_dir: "{{ src_root_dir }}/{{ app_module_type }}/{{ app_module_namespace }}"
+
+
+app_run_composer: true
+app_set_config: true
+

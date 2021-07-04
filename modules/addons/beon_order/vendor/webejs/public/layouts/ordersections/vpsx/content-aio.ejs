@@ -1,0 +1,38 @@
+<div class="template-container">
+    <div class="row">
+
+        <% images['all_in_one'].forEach(function(image) { %>
+
+        <div class="col-md-6">
+            <div class="template <%= selected.configid == image.configid ? 'checked' : '' %>"
+                 data-type="aio" data-template="<%= image.configid %>" aria-valuetext="<%= image.apps %>"
+                 style="align-items: center;" aria-hidden="<%= image.distro %> <%= image.osversion %>">
+                <div class="col-md-2">
+                    <div class="img">
+                        <img src="/modules/addons/beon_order/templates/assets/images/vpsx/<%= image.apps.toLowerCase() %>.png"
+                             alt="">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text">
+                        <h3 class="text-capitalize"><%= image.apps %></h3>
+                        <p><%= image.distro %> <%= image.osversion %></p>
+                    </div>
+                </div>
+                <% if (image.link != null) { %>
+                    <div class="col-md-3">
+                        <div class="detail-class <%= selected.configid == image.configid ? '' : 'none' %>"
+                             data-templateos="<%= image.id %>">
+
+                            <a href="<%= image.link %>?utm_source=member-area&utm_medium=btn-detail-guide-order&utm_campaign=vps-x/" target="_blank" class="cursor-pointer">
+                                Details
+                            </a>
+
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
